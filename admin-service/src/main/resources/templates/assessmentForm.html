@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Add Assessment Form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="/static/styles.css"> <!-- Link to your custom styles -->
+</head>
+
+<body class="dark-theme-bg bg-gradient-to-b from-gray-800 to-gray-900 text-white flex flex-col min-h-screen">
+
+<!-- Header -->
+<header class="dark-theme-bg p-4 flex justify-between items-center">
+    <h1 class="text-3xl font-semibold text-white">Assessment Scheduler</h1>
+    <a href="http://localhost:9090/api/login" class="text-white hover:text-gray-300 px-4 py-2 rounded-md border border-white hover:border-gray-300 transition duration-300">Logout</a>
+</header>
+
+<!-- Main Content -->
+<div class="flex-grow mx-auto p-4 mt-8">
+    <div class=" rounded p-8 shadow-md">
+        <div class="text-center mb-8">
+            <h2 class="text-3xl font-semi-bold text-white">Add Assessment</h2>
+        </div>
+
+        <form th:action="@{/api/assessment/addAssessment}" method="post" accept-charset="UTF-8">
+            <div class="mb-6">
+                <label for="assessmentType" class="block text-gray-400 mb-2">Assessment Type</label>
+                <input type="text" id="assessmentType" placeholder="Assessment Type" name="assessmentType" required autofocus autocomplete="off"
+                       class="w-full px-3 py-2 border rounded-md bg-gray-700 focus:outline-none focus:border-blue-500 appearance-none text-white">
+            </div>
+            <div class="mb-6">
+                <label for="assessmentName" class="block text-gray-400 mb-2">Assessment Name</label>
+                <input type="text" id="assessmentName" placeholder="Assessment Name" name="assessmentName" required autocomplete="off"
+                       class="w-full px-3 py-2 border rounded-md bg-gray-700 focus:outline-none focus:border-blue-500 text-white">
+            </div>
+            <button type="submit"
+                    class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
+                Add Assessment
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="w-full dark-theme-bg p-4 text-center mt-auto">
+    <p class="text-sm text-gray-500">© 2023 Assessment Scheduler. All rights reserved.</p>
+</footer>
+
+</body>
+
+</html>
